@@ -7,7 +7,6 @@ public class MaxHeap implements Heap {
         this.size = size;
         data = new Integer[size];
     }
-
     // build a heap based on data
     // to be implemented in O(n)
     public void MaxHeapN(Integer[] data) {
@@ -18,14 +17,17 @@ public class MaxHeap implements Heap {
         return (i-1)/2;
     }
 
+    //function that can return the kth child (left or right based on #)
     private int kthChild(int i, int k){
         return 2*i + k;
     }
 
+    //Implemented so that there is no need to type if(size == capacity) over and over again
     public boolean isFull(){
         return size == capacity;
     }
 
+    //Implemented so that there's no need to retype if(size == 0) over and over again
     private boolean isEmpty(){
         return size == 0;
     }
@@ -98,7 +100,7 @@ public class MaxHeap implements Heap {
         return data[leftChild]>data[rightChild]?leftChild:rightChild;
     }
 
-    //Returns the max element of the heap or heap[0]
+    //Returns the max element of the heap or heap[0] (root)
     public int findMax(){
         if (isEmpty()){
             return 0;
